@@ -68,14 +68,14 @@ def create_dict(kmer_in_file):
 		kmer_len =len(kmer_final[0])
 		if kmer_len in blank_dict.keys():
 			if kmer_final[1] == True:
-				blank_dict[kmer_len].append( 'The kmer length ' + str(kmer_len)+ ', kmer ' + kmer_final[0] + ' is in a file')
+				blank_dict[kmer_len].append( 'The kmer length ' + str(kmer_len)+ ', kmer ' + kmer_final[0] + ' is in the file')
 			elif kmer_final[1] == False:
-				blank_dict[kmer_len].append( ('The kmer length ' + str(kmer_len) +', kmer '+ kmer_final[0] + ' is not in a file'))
+				blank_dict[kmer_len].append( ('The kmer length ' + str(kmer_len) +', kmer '+ kmer_final[0] + ' is not in the file'))
 		else:
 			if kmer_final[1] == True:
-				blank_dict[kmer_len] =['The kmer length '  + str(kmer_len) + ', kmer ' + kmer_final[0] + ' is in a file']
+				blank_dict[kmer_len] =['The kmer length '  + str(kmer_len) + ', kmer ' + kmer_final[0] + ' is in the file']
 			elif kmer_final[1] == False:
-				blank_dict[kmer_len] =['The kmer length ' + str(kmer_len) + ', kmer ' + kmer_final[0] + ' is not in a file']
+				blank_dict[kmer_len] =['The kmer length ' + str(kmer_len) + ', kmer ' + kmer_final[0] + ' is not in the file']
 	return blank_dict
 
 kmer_process()
