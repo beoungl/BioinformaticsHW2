@@ -1,0 +1,37 @@
+import random
+
+for length in range(1,11):
+	kmer =str(100/float((4**length))) + '%'
+	print(kmer)
+	print('The probability of getting random kmer for string length {} is {}'.format(length,kmer))
+kmer_list =[]
+for number in range(1,11):
+	count = 0
+	for kmers in range(5):
+		count += 1
+		random_kmer = ''
+		for dna in range(number):
+			if number == 1 and count == 5:
+				break
+			random_kmer += random.choice('ATCG')
+		kmer_list.append(random_kmer)
+sample_dict = {}
+for kmer_length in kmer_list:
+	if len(kmer_length) in sample_dict.keys():
+		sample_dict[len(kmer_length)].append(kmer_length)
+	else:
+		sample_dict[len(kmer_length)] = [kmer_length]
+print(sample_dict)
+
+aligner_file = open('Zmay_chr_9-P-94283818.fa')
+aligners = aligner_file.readlines()
+kmer_in_file = []
+for kmer_bool in kmer_list:
+	for aligner in aligners:
+		if kmer_bool in aligner:
+			kmer_in_file.append(kmer_bool + ' in a fil
+			break
+		else:
+			count  = count * 0
+
+print(kmer_in_file)

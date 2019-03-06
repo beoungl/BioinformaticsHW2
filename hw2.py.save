@@ -1,0 +1,55 @@
+import random
+
+for length in range(1,11):
+	kmer =str(100/float((4**length))) + '%'
+	print(kmer)
+	print('The probability of getting random kmer for string length {} is {}'.format(length,kmer))
+kmer_list =[]
+for number in range(1,11):
+	count = 0
+	for kmers in range(5):
+		count += 1
+		random_kmer = ''
+		for dna in range(number):
+			if number == 1 and count == 5:
+				break
+			random_kmer += random.choice('ATCG')
+		kmer_list.append(random_kmer)
+sample_dict = {}
+for kmer_length in kmer_list:
+	if len(kmer_length) in sample_dict.keys():
+		sample_dict[len(kmer_length)].append(kmer_length)
+	else:
+		sample_dict[len(kmer_length)] = [kmer_length]
+print(sample_dict)
+
+aligner_file = open('Zmay_chr_9-P-94283818.fa')
+aligners = aligner_file.readlines()
+kmer_in_file = []
+kmer_true = []
+for kmer_bool in kmer_list:
+	for aligner in aligners:
+		if kmer_bool in aligner:
+			kmer_temp = []
+			kmer_temp.append(kmer_bool)
+			kmer_temp.append(True)
+			kmer_in_file.append(kmer_temp)
+			kmer_true.append(kmer_bool)
+			break
+for kmer_bool in kmer_list:
+	if kmer_bool not in kmer_true:
+		kmer_temp = []
+		kmer_temp.append(kmer_bool)
+		kmer_temp.append(False)
+		kmer_in_file.append(kmer_temp) 
+print(kmer_in_file)
+blank_dict = {}
+for kmer_final in range(len(kmer_in_file)):
+	kmer = kmer_in_file[kmer_final]
+	kmer_len =len(kmer_in_file[kmer_final][0])
+	if kmer_final[0] in sample_dict[kmer_len]:
+		if kmer_final[1] == True:
+			blank_dict[kmer_len] = 'The kmer length ' + str(kmer_len)+ ' ' + kmer_final[0] + ' is in a file'
+		elif kmer_final[1] == False:
+			blank_dict[kmer_len] = 'The kmer length ' + str(kmer_len) +' '+ kmer_final[0] + ' is not in a file'
+print(blank_dict)
