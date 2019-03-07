@@ -73,7 +73,11 @@ Happy(0.8)    Sad(0.2)      Happy(0.8)
 
 b) Sunny -> Sunny -> Rainy
 
-Sunny(2/3)
+Sunny(2/3) -> Sunny(0.8) -> Rainy(0.2)
+    |             |             |
+Happy(0.8)    Sad(0.2)      Happy(0.4)
+
+= 0.00682
 
 3) Given Happy -> Happy -> Sad -> Sad -> Sad -> Happy, determine the most liekly weather.
 
@@ -94,7 +98,7 @@ Sunny(2/3) -> Rainy(0.2)
     |             |
 Happy(0.8)    Happy(0.4)
 
-= 0.427
+= 0.0427
 
 Rainy -> Sunny
 
@@ -109,6 +113,8 @@ Rainy -> Rainy
 Rainy(1/3) -> Rainy(0.6)
     |             |
 Happy(0.4)    Happy(0.4)
+
+= 0.032
 
 b) Use Sunny -> Sunny based on Viterbi algorithm
 
@@ -131,3 +137,4 @@ Happy(0.8)    Happy(0.8)    Sad(0.6)
 = 0.04092
 
 c) Use Sunny -> Sunny -> Sunny
+
