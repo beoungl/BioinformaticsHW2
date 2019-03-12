@@ -3,6 +3,8 @@
 
 For the Happy -> Sad -> Happy -> Sad -> Happy -> Sad -> Happy, run the file named hw3.py.
 
+Click edit to read through README.md more easily.
+
 Handsimulation
 
 Given, 
@@ -119,22 +121,73 @@ Happy(0.4)    Happy(0.4)
 b) Use Sunny -> Sunny based on Viterbi algorithm
 
 b1)
-Sunny -> Sunny -> Sunny
+Sunny -> Sunny -> Sunny -> Sunny
 
-Sunny(2/3) -> Sunny(0.8) -> Sunny(0.8)
-    |             |            |
-Happy(0.8)    Happy(0.8)    Sad(0.2)
+Sunny(2/3) -> Sunny(0.8) -> Sunny(0.8) -> Sunny(0.8)
+    |             |            |            |
+Happy(0.8)    Happy(0.8)    Sad(0.2)      Sad(0.2)
 
-= 0.0546
+= 0.0087
 
 b2)
-Sunny -> Sunny -> Rainy
+Sunny -> Sunny -> Rainy -> Rainy
 
-Sunny(2/3) -> Sunny(0.8) -> Rainy(0.2)
-    |             |            |
-Happy(0.8)    Happy(0.8)    Sad(0.6)
+Sunny(2/3) -> Sunny(0.8) -> Rainy(0.2) -> Rainy(0.6)
+    |             |            |            |
+Happy(0.8)    Happy(0.8)    Sad(0.6)      Sad(0.6)
 
-= 0.04092
+= 0.0147
 
-c) Use Sunny -> Sunny -> Sunny
+b3) Use Sunny -> Sunny -> Sunny -> Rainy
 
+Sunny(2/3) -> Sunny(0.8) -> Sunny(0.8) -> Rainy(0.2)
+    |             |            |            |
+Happy(0.8)    Happy(0.8)    Sad(0.2)      Sad(0.6)
+
+= 0.00655
+
+b4) Use Sunny -> Sunny -> Rainy -> Sunny
+
+Sunny(2/3) -> Sunny(0.8) -> Rainy(0.2) -> Sunny(0.4)
+    |             |            |            |
+Happy(0.8)    Happy(0.8)    Sad(0.6)      Sad(0.2)
+
+= 0.00328
+
+c) Start from Sunny -> Sunny -> Rainy -> Rainy
+
+c1) Sunny -> Sunny -> Rainy -> Rainy -> Rainy - > Rainy
+
+Sunny(2/3) -> Sunny(0.8) -> Rainy(0.2) -> Rainy(0.6) -> Rainy(0.6) -> Rainy(0.6)
+    |             |            |            |              |              |
+Happy(0.8)    Happy(0.8)    Sad(0.6)      Sad(0.6)      Sad(0.6)      Happy(0.4)
+
+= 0.00127
+
+c2) Sunny -> Sunny -> Rainy -> Rainy -> Rainy - > Sunny
+
+Sunny(2/3) -> Sunny(0.8) -> Rainy(0.2) -> Rainy(0.6) -> Rainy(0.6) -> Sunny(0.4)
+    |             |            |            |              |              |
+Happy(0.8)    Happy(0.8)    Sad(0.6)      Sad(0.6)      Sad(0.6)      Happy(0.8)
+
+= 0.00169
+
+c3) Sunny -> Sunny -> Rainy -> Rainy -> Sunny - > Rainy
+
+Sunny(2/3) -> Sunny(0.8) -> Rainy(0.2) -> Rainy(0.6) -> Sunny(0.4) -> Rainy(0.2)
+    |             |            |            |              |              |
+Happy(0.8)    Happy(0.8)    Sad(0.6)      Sad(0.6)      Sad(0.2)      Happy(0.4)
+
+= 0.000094
+
+c4) Sunny -> Sunny -> Rainy -> Rainy -> Sunny - > Sunny
+
+Sunny(2/3) -> Sunny(0.8) -> Rainy(0.2) -> Rainy(0.6) -> Sunny(0.4) -> Rainy(0.2)
+    |             |            |            |              |              |
+Happy(0.8)    Happy(0.8)    Sad(0.6)      Sad(0.6)      Sad(0.2)      Happy(0.4)
+
+= 0.000094
+
+Based on this, the most likely weather is
+
+Sunny -> Sunny -> Rainy -> Rainy -> Rainy -> Sunny with 0.0169 probability.
