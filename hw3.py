@@ -3,7 +3,7 @@ import numpy as np
 import math
 
 model = hmm.MultinomialHMM(n_components = 2)
-model.startprob_ = np.array([0.6666666,0.333333])
+model.startprob_ = np.array([0.666666666,0.33333333])
 model.transmat_ = np.array([[0.8,0.2],[0.6,0.4]])
 model.emissionprob_ = np.array([[0.8,0.2],[0.4,0.6]])
 #print(math.exp(model.score(np.array([[0,1]]))))
